@@ -10,4 +10,4 @@ for files in  zipfiles.readlines():
     s_path="/".join(spath)
     d_path="/".join(dpath)
     result=os.popen("mv "+s_path+" " +d_path)
-    print result.readlines()
+    print spath

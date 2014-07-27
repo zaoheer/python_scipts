@@ -6,7 +6,7 @@ def getHOST(config_file):
     if os.path.exists(config_file) is not True:
         print "The config file is not exists ! please check"
         sys.exit()
-    results=os.popen("grep HOST " + config_file)
+    results=os.popen("grep HOST " + config_file + " |grep -v \# ")
     hostlists=[]
     for line in results.readlines():
         hostgrow=line.strip('\n').split("|")
@@ -17,7 +17,7 @@ def getHOST(config_file):
 def getTomcat(config_file):
     if os.path.exists(config_file) is not True:
         print "The config file is not exists ! please check"
-    results=os.popen("grep tomcat  "+ config_file)
+    results=os.popen("grep tomcat  "+ config_file +" |grep -v \#")
     tomcatlists=[]
     for line in results.readlines():
         tomcatgrow=line.strip('\n').split("|")
@@ -27,7 +27,7 @@ def getTomcat(config_file):
 def getIcenodes(config_file):
     if os.path.exists(config_file) is not True:
         print "The config file is not exists ! please check"
-    results=os.popen("grep icenode "+ config_file)
+    results=os.popen("grep icenode "+ config_file + " |grep -v \#")
     icenodelist=[]
     for line in results.readlines():
         icenodegrow=line.strip("\n").split("|")
@@ -43,9 +43,17 @@ def getHostConn(ip,user,pwd,port=22):
     ssh_client.connect(ip,port,user,pwd)
     return ssh_client
 
+def checkfiles(ssh_client,remoteFiles):
+    for file  in   remoteFiles:
+        stdin, stdout, stderr = ssh_client.exec_command("ls " +file)
+        err=stderr.readlines()
+        if err is not null:
+            print err
 
 def update_tomcat_item(ssh_client,localdir,remotedir,localfile,remotefile):
     sftp_client = ssh_client.open_sftp()
+    localdir=localdir.rstrip("/")
+    remotedir=remotedir.rstrip("/")
     curr_time = time.strftime('%Y%m%d%H%M%S')
     sftp_client.rename(remotedir,remotedir+curr_time)
     sftp_client.mkdir(remotedir)
@@ -55,6 +63,8 @@ def update_tomcat_item(ssh_client,localdir,remotedir,localfile,remotefile):
 
 def update_icenode(ssh_client,localdir,remotedir,localfile,remotefile):
     curr_time = time.strftime('%Y%m%d%H%M%S')
+    localdir=localdir.rstrip("/")
+    remotedir=remotedir.rstrip("/")
     bakdir=remotedir+"/bak"+curr_time
     stdin, stdout, stderr = ssh_client.exec_command("mkdir "+bakdir)
     err= stderr.readlines()
@@ -78,12 +88,13 @@ def update_icenode(ssh_client,localdir,remotedir,localfile,remotefile):
 
 
 if __name__ == '__main__':
+    config_file="44.config"
     #get hosts list config
-    hosts=getHOST("44.config")
+    hosts=getHOST(config_file)
     #get tomcat config list
-    tomcat_items=getTomcat("44.config")
+    tomcat_items=getTomcat(config_file)
     #get icenode config list
-    icenode_items=getIcenodes("44.config")
+    icenode_items=getIcenodes(config_file)
 
     # for loop  get host connections
     for host in hosts:
