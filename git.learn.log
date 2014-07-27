@@ -5,14 +5,14 @@ ssh -T git@github.com
 git config --global user.name 'zaoheer'
 git config --global user.email '106506@gmail.com'
 
-git remote add origin git@github.com:zaoheer/python_scipts
+git remote add pp  git@github.com:zaoheer/python_scipts # add romte repo and give it a alias name "pp"
 
 git add some_files
 git commit -m "contents for commits"
 
-git push origin master  #push local repo to remote repo
+git push pp master  #push local repo to remote repo
 
-git push -f  origin master  #force  update remote github's repo
+git push -f  pp  master  #force  update remote github's repo
 
 .gitignore  # ignore  some files  update 
 
