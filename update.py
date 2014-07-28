@@ -77,8 +77,10 @@ def update_icenode(ssh_client,localdir,remotedir,localfile,remotefile):
     sftp_client = ssh_client.open_sftp()
     sftp_client.put(localdir+"/"+localfile,remotedir+"/"+remotefile)
     sftp_client.close()
-    #stdin, stdout, stderr = ssh_client.exec_command("unzip  -q "+remotedir+"/"+remotefile)
-    stdin,stdout,stderr=ssh_client.exec_command("cd "+remotedir+"&&  /usr/bin/unzip -q "+ remotefile+" -d temp  && cd temp/* && mv * ../../ && cd ../../ && rm -rf  temp")
+    
+    #stdin,stdout,stderr=ssh_client.exec_command("cd "+remotedir+"&&  /usr/bin/unzip -q "+ remotefile+" -d temp  && cd temp/* && mv * ../../ && cd ../../ && rm -rf  temp")
+    stdin,stdout,stderr=ssh_client.exec_command("cd "+remotedir+" &&  mkdir temp  &&  tar -xpv -f "+ remotefile+" -C temp  && cd temp/* && mv * ../../ && cd ../../ && rm -rf  temp *.tgz")
+    
     err= stderr.readlines()
     for e in err:
         print e
