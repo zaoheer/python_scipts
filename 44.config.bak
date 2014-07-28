@@ -84,9 +84,9 @@ tomcat|account-t|/lottery/tomcat7.promotion-8982/webapps|promotion-web.war|/User
 
 tomcat|account-t|/lottery/tomcat7.alipayFront8093/webapps|alipay-web.war|/Users/zaoheer/deploy/account-system/alipay-web|alipay-web.war
 
-tomcat|account-t|/lottery/tomcat7.bankWeb8095/webapps|bank-web.war|/Users/zaoheer/deploy/account-system/bank-sim/山东建行|bank-sim.war
+tomcat|account-t|/lottery/tomcat7.bankWeb8095/webapps|bank-web.war|/Users/zaoheer/deploy/account-system/bank-web/山东建行|bank-web.war
 
-tomcat|account-t|/lottery/tomcat7.bankWeb8096/webapps|bank-web.war|/Users/zaoheer/deploy/account-system/bank-sim/青岛建行|bank-sim.war
+tomcat|account-t|/lottery/tomcat7.bankWeb8096/webapps|bank-web.war|/Users/zaoheer/deploy/account-system/bank-web/青岛建行|bank-web.war
 
 tomcat|account-t|/lottery/tomcat7.weibo25100/webapps|social-web.war|/Users/zaoheer/deploy/inceptor-system/social-web|social-web.war
 
