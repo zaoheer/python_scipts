@@ -27,36 +27,36 @@ tomcat|business-t|/lottery/tomcat7.match8992/webapps|match-web.war|/Users/zaohee
 tomcat|business-t|/lottery/tomcat7.Supervise25000/webapps|CSLMntl.war|/Users/zaoheer/deploy/gateway-system/supervise-sim|CSLMntl.war
 
 
-icenode|business-t|/lottery/Trade|trade-ice.zip|/Users/zaoheer/deploy/sales-system/trade-ice|trade-ice.zip
+icenode|business-t|/lottery/Trade|trade-ice.tar.gz|/Users/zaoheer/deploy/sales-system/trade-ice|trade-ice.tar.gz
 
 
-icenode|business-t|/lottery/Scratch|scratch-ice.zip|/Users/zaoheer/deploy/sales-system/scratch-ice|scratch-ice.zip
+icenode|business-t|/lottery/Scratch|scratch-ice.tar.gz|/Users/zaoheer/deploy/sales-system/scratch-ice|scratch-ice.tar.gz
 
 
-icenode|business-t|/lottery/Front|front-ice.zip|/Users/zaoheer/deploy/front-system/front-ice|front-ice.zip
+icenode|business-t|/lottery/Front|front-ice.tar.gz|/Users/zaoheer/deploy/front-system/front-ice|front-ice.tar.gz
 
 
-icenode|business-t|/lottery/Crontab|crontab-ice.zip|/Users/zaoheer/deploy/manager-system/crontab-ice|crontab-ice.zip
+icenode|business-t|/lottery/Crontab|crontab-ice.tar.gz|/Users/zaoheer/deploy/manager-system/crontab-ice|crontab-ice.tar.gz
 
-icenode|business-t|/lottery/SuperviseCollect|supervise-col-ice.zip|/Users/zaoheer/deploy/gateway-system/supervise-col-ice|supervise-col-ice.zip
+icenode|business-t|/lottery/SuperviseCollect|supervise-col-ice.tar.gz|/Users/zaoheer/deploy/gateway-system/supervise-col-ice|supervise-col-ice.tar.gz
 
-icenode|business-t|/lottery/Report|report-ice.zip|/Users/zaoheer/deploy/sales-system/report-ice|report-ice.zip
+icenode|business-t|/lottery/Report|report-ice.tar.gz|/Users/zaoheer/deploy/sales-system/report-ice|report-ice.tar.gz
 
-icenode|business-t|/lottery/Manager|manager-ice.zip|/Users/zaoheer/deploy/manager-system/manager-ice|manager-ice.zip
+icenode|business-t|/lottery/Manager|manager-ice.tar.gz|/Users/zaoheer/deploy/manager-system/manager-ice|manager-ice.tar.gz
 
-icenode|business-t|/lottery/Linegw|linegw-ice.zip|/Users/zaoheer/deploy/gateway-system/linegw-ice|linegw-ice.zip
+icenode|business-t|/lottery/Linegw|linegw-ice.tar.gz|/Users/zaoheer/deploy/gateway-system/linegw-ice|linegw-ice.tar.gz
 
-icenode|business-t|/lottery/Immegw|immegw-ice.zip|/Users/zaoheer/deploy/gateway-system/immegw-ice|immegw-ice.zip
+icenode|business-t|/lottery/Immegw|immegw-ice.tar.gz|/Users/zaoheer/deploy/gateway-system/immegw-ice|immegw-ice.tar.gz
 
-icenode|business-t|/lottery/ControlBusiness|control-bus-ice.zip|/Users/zaoheer/deploy/gateway-system/control-bus-ice|control-bus-ice.zip
+icenode|business-t|/lottery/ControlBusiness|control-bus-ice.tar.gz|/Users/zaoheer/deploy/gateway-system/control-bus-ice|control-bus-ice.tar.gz
 
-icenode|business-t|/lottery/Abgw|abgw-ice.zip|/Users/zaoheer/deploy/gateway-system/abgw-ice|abgw-ice.zip
+icenode|business-t|/lottery/Abgw|abgw-ice.tar.gz|/Users/zaoheer/deploy/gateway-system/abgw-ice|abgw-ice.tar.gz
 
-icenode|business-t|/lottery/SuperviseBusiness|supervise-bus-ice.zip|/Users/zaoheer/deploy/gateway-system/supervise-bus-ice|supervise-bus-ice.zip
+icenode|business-t|/lottery/SuperviseBusiness|supervise-bus-ice.tar.gz|/Users/zaoheer/deploy/gateway-system/supervise-bus-ice|supervise-bus-ice.tar.gz
 
-icenode|business-t|/lottery/Message|message-ice.zip|/Users/zaoheer/deploy/sales-system/message-ice|message-ice.zip
+icenode|business-t|/lottery/Message|message-ice.tar.gz|/Users/zaoheer/deploy/sales-system/message-ice|message-ice.tar.gz
 
-icenode|business-t|/lottery/Sport|sport-ice.zip|/Users/zaoheer/deploy/sales-system/sport-ice|sport-ice.zip
+icenode|business-t|/lottery/Sport|sport-ice.tar.gz|/Users/zaoheer/deploy/sales-system/sport-ice|sport-ice.tar.gz
 
 
 
@@ -91,14 +91,14 @@ tomcat|account-t|/lottery/tomcat7.bankWeb8096/webapps|bank-web.war|/Users/zaohee
 tomcat|account-t|/lottery/tomcat7.weibo25100/webapps|social-web.war|/Users/zaoheer/deploy/inceptor-system/social-web|social-web.war
 
 
-icenode|account-t|/lottery/Member|member-ice.zip|/Users/zaoheer/deploy/account-system/member-ice|member-ice.zip
-icenode|account-t|/lottery/Passport|passport-ice.zip|/Users/zaoheer/deploy/inceptor-system/passport-ice|passport-ice.zip
+icenode|account-t|/lottery/Member|member-ice.tar.gz|/Users/zaoheer/deploy/account-system/member-ice|member-ice.tar.gz
+icenode|account-t|/lottery/Passport|passport-ice.tar.gz|/Users/zaoheer/deploy/inceptor-system/passport-ice|passport-ice.tar.gz
 
-icenode|account-t|/lottery/SuperviseAccount|supervise-acc-ice.zip|/Users/zaoheer/deploy/gateway-system/supervise-acc-ice|supervise-acc-ice.zip
+icenode|account-t|/lottery/SuperviseAccount|supervise-acc-ice.tar.gz|/Users/zaoheer/deploy/gateway-system/supervise-acc-ice|supervise-acc-ice.tar.gz
 
-icenode|account-t|/lottery/ControlAccount|control-acc-ice.zip|/Users/zaoheer/deploy/gateway-system/control-acc-ice|control-acc-ice.zip
+icenode|account-t|/lottery/ControlAccount|control-acc-ice.tar.gz|/Users/zaoheer/deploy/gateway-system/control-acc-ice|control-acc-ice.tar.gz
 
-icenode|account-t|/lottery/Payment|payment-ice.zip|/Users/zaoheer/deploy/account-system/payment-ice|payment-ice.zip
+icenode|account-t|/lottery/Payment|payment-ice.tar.gz|/Users/zaoheer/deploy/account-system/payment-ice|payment-ice.tar.gz
 
 
 ####################--------172.16.18.32  account-t 结束---------------------------------#########################

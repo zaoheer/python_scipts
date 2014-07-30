@@ -55,7 +55,7 @@ else:
 
 
 #更新ices
-iceFiles=os.popen("find "+SVNdir+"  -name " + Items + "*.tgz |grep ice")
+iceFiles=os.popen("find "+SVNdir+"  -name " + Items + "*.tar.gz |grep ice")
 for ice in  iceFiles.readlines():
     icePath=ice.strip("\n")
     iceDir=os.path.dirname(icePath)
@@ -64,7 +64,7 @@ for ice in  iceFiles.readlines():
     
     #解压压缩包
     #autoResult=os.system("cd " + iceDir + " &&  unzip -q *.zip  &&  rm -f *.zip " ) 
-    autoResult=os.system("cd " + iceDir + " &&  tar xvp -f *.tgz  &&  rm -f *.tgz " ) 
+    autoResult=os.system("cd " + iceDir + " &&  tar xvp -f *.tar.gz  &&  rm -f *.tar.gz " ) 
     if autoResult != 0 :
         print "decompression error deal with " +icename
         continue
@@ -83,8 +83,8 @@ for ice in  iceFiles.readlines():
     
     #压缩回去
     time.sleep(1) 
-    #compress_command=" cd " + iceDir +" && cd  "+icename+"* && mv * .. && cd .. && rmdir "+icename+"*  && tar --remove-files  -cpz -f " + icename + ".tgz * "   #tar 包去顶目
-    compress_command="cd " + iceDir +"  && tar --remove-files  -cpz -f " + icename + ".tgz * "  #tar 包保顶目
+    #compress_command=" cd " + iceDir +" && cd  "+icename+"* && mv * .. && cd .. && rmdir "+icename+"*  && tar --remove-files  -cpz -f " + icename + ".tar.gz * "   #tar 包去顶目
+    compress_command="cd " + iceDir +"  && tar --remove-files  -cpz -f " + icename + ".tar.gz * "  #tar 包保顶目
     compress_Result=os.system(compress_command)
     if compress_Result != 0:
         print "Compress error  deal with "+icename
@@ -105,7 +105,7 @@ if os.path.exists(PackageDir) is True:
     baseName=os.path.basename(PackageDir)
     os.system("cd "+baseDir+"&& rm -rf "+baseName)
 print "Copy  files  to "+PackageDir
-cp_command="mkdir -p "+ PackageDir+" && find  "+SVNdir + " -name '*.tgz' -o -name '*.war' |xargs -I {} cp  {} "+PackageDir+" "
+cp_command="mkdir -p "+ PackageDir+" && find  "+SVNdir + " -name '*.tar.gz' -o -name '*.war' |xargs -I {} cp  {} "+PackageDir+" "
 
 copyResult=os.system(cp_command)
 if copyResult !=0 :
