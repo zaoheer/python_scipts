@@ -17,7 +17,6 @@ action2=sys.argv[2]
 if action1 not in ('update','list','install'):
     print "Usage:  ./install_tools  list|install|update   group|groupname|items"
     sys.exit(1)
-    
 
 itemType=('TOMCAT','ICE')
 Baseurl="ftp://soft.uuzz.com/"
@@ -45,8 +44,7 @@ def listGroup(configFile,):
             #print group
             groups.append(group)
         return groups
-        
-        
+
 def listGroupItems(configFile,type1):
     if os.path.exists(configFile) is not True:
         print "ERROR,config file "+configFile+" is not exists,exit"
@@ -61,10 +59,8 @@ def listGroupItems(configFile,type1):
             item=item.strip('\n')
             Items.append(item)
         return Items
-    
 def listItems(configFile,listType1,listType2="'.*'"):
     '''This funtion return  icenodes list in configfile'''
-    
     if os.path.exists(configFile) is not True:
         print "ERROR,config file "+configFile+" is not exists,exit"
         sys.exit()
@@ -77,25 +73,21 @@ def listItems(configFile,listType1,listType2="'.*'"):
         for item in results.readlines():
             #item=item.strip('\n')
             item=item.strip('\n').split(":")
-            
             Items.append(item)
-        return Items        
-  
+        return Items
 def listItem(configFile,itemname):
     ''' retun item String '''
     if os.path.exists(configFile) is not True:
         print "ERROR,config file "+configFile+" is not exists,exit"
         sys.exit()
-    
     else:
         command="grep "+ itemname +" " + configFile + " | grep -v '#'"
         #print command
         results=os.popen(command)
-     
 
         for item in results.readlines():
             item = item.strip('\n')
-        return item   
+        return item
 
 def installIcenode(baseurl,icenode):
     os.system("rm -rf /tmp/uuzz/*")
@@ -115,7 +107,7 @@ def installIcenode(baseurl,icenode):
         print "Warning, "+installDir +" aleady  exists , Skip !!!"
     else:
         os.system("mkdir -p "+installDir)
-        tar=tarfile.open(tmpPath)   
+        tar=tarfile.open(tmpPath)
         tar.extractall(installDir)
         command="cd "+installDir +" &&  cd  *ice*  && mv * .. && cd .. && rmdir *ice*"
         result=os.system(command)
@@ -123,38 +115,31 @@ def installIcenode(baseurl,icenode):
             print "Install "+pkgname +" Successfull !!!"
         else:
             print "ERROR, Install "+pkgname
-    
-    
+
 def installTomcat(baseurl,tomcatnode) :
     os.system("rm -rf /tmp/uuzz/*")
     os.system("mkdir -p /tmp/uuzz/")
     tomcatnode=tomcatnode.split(":")
-    
     Len=len(tomcatnode)
     pkgname=tomcatnode[Len-1]
     installPath=tomcatnode[Len-2]
     tomcatName=os.path.basename(installPath)+".tgz"
-    tomcaturl=baseurl+"tomcat/"+tomcatName  
+    tomcaturl=baseurl+"tomcat/"+tomcatName
     pkgurl=baseurl+"packages/"+pkgname
-    
     tmpPath='/tmp/uuzz/'+tomcatName
     urllib.urlretrieve(tomcaturl,tmpPath)
     if os.path.exists(installPath+"/bin"):
-            print "Warning, "+installPath +" aleady  exists, Skip  !!!"  
+            print "Warning, "+installPath +" aleady  exists, Skip  !!!"
     else:
-        
         result=os.system("tar -xzp -f "+tmpPath +" -C /usr/local/  &&  rm -rf  /tmp/uuzz")
         #判断是否解压成功
         if result == 0:
-                    print "Uncompress "+tomcatName +" Successfull !!!"
+                    # print "Uncompress "+tomcatName +" Successfull !!!"
                     if os.path.exists(installPath+"/webapps"):
                         urllib.urlretrieve(pkgurl,installPath+"/webapps/"+pkgname)
                         print pkgname + " install successfull !"
-                           
-                    
-        
-        
-    
+        else:
+            print "Error,Install "+tomcatName
 if __name__=='__main__':
     #列出有多少组
     if action1=='list' and action2=='group' :
@@ -170,12 +155,13 @@ if __name__=='__main__':
         list = listGroupItems(configFile,action2)
         for item in list:
             #item=":".join(item)
-            print item 
+            print item
     #列出单个项目
-    elif action1=='list' and action2 not in listGroup(configFile) and action2 not in itemType:
+    elif action1=='list' and action2 not in listGroup(configFile)\
+            and action2 not in itemType:
         list=listItem(configFile, action2)
         print list
-    #安装组    
+    #安装组
     elif action1=='install' and  action2 in listGroup(configFile):
         lists = listGroupItems(configFile,action2)
         for list in lists:
@@ -189,9 +175,16 @@ if __name__=='__main__':
             if updateType=='ICE':
                 installIcenode(Baseurl, list)
                 #print "install  ICE"
-        
-        
-        
+    elif action1=='install' and  action2 not in listGroup(configFile)\
+            and action2 not in itemType:
+        list=listItem(configFile, action2)
+        item=list.split(":")
+        updateType=item[2]
+        if updateType=='TOMCAT':
+            installTomcat(Baseurl,list)
+        if updateType=='ICE':
+            installIcenode(Baseurl, list)
+
     else:
         print "Usage:  ./install_tools  list|install|update   group|groupname|items"
 
